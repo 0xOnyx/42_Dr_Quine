@@ -20,9 +20,9 @@ OBJ					= $(SRCS:.asm=.o)
 OBJS				= $(addprefix $(PATH_OBJ),$(OBJ))
 
 DEBUGING			= #-g3 -fsanitize=address -fsanitize=undefined
-CFLAGS				= -felf64 #-Wall -Wextra -Werror
+CFLAGS				= #-Wall -Wextra -Werror
 
-OPTIONS				=
+OPTIONS				= -felf64
 NASM				= nasm
 CC					= gcc
 RM					= rm -rf
@@ -31,20 +31,18 @@ DEBUG = 0
 
 ifeq ($(DEBUG), 1)
 	CFLAGS += $(DEBUGING)
-else
-	CFLAGS += -Ofast
 endif
 
 all			: $(NAME)
 
 $(PATH_OBJ)%.o	: %.asm
 	@mkdir -p $(PATH_OBJ)
-	@$(NASM) $(CFLAGS) $(OPTIONS) -o $(@) -c $(<)
+	$(NASM) $(OPTIONS) $(<) -o $(@)
 	@printf "$(COLOR_GREEN)[$(COLOR_WHITE)INFO$(COLOR_GREEN)] COMPILATION $(COLOR_BLUE)DEBUG => [%s] $(COLOR_BOLD)SRC\t\t=>\t$(COLOR_WHITE)%s$(COLOR_RESET)\n" $(DEBUG) $<
 
 
 $(NAME)		: $(OBJS)
-	@$(CC) $(CFLAGS) $(OPTIONS) -o $(@) $(OBJS)
+	@$(CC) $(CFLAGS) -o $(@) $(OBJS)
 	@echo "$(COLOR_GREEN)[$(COLOR_WHITE)INFO$(COLOR_GREEN)] LINKAGE $(COLOR_BOLD)ALL OBJS FILE =>\n\t $(COLOR_WHITE)$(OBJS:.o=.o\n\t)"
 	@echo "$(COLOR_GREEN)[$(COLOR_WHITE)INFO$(COLOR_GREEN)] COMPILATION FINISH !$(COLOR_WHITE)$(COLOR_RESET_BOLD)"
 

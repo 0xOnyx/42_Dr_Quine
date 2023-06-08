@@ -3,7 +3,7 @@ global	main
 	section .text
 	extern printf
 
-m:
+main:
 	push	rbp
 	mov		rbp, rsp
 ;	sub		rsp, 8  for VARIABLE LOCAL

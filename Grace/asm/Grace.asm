@@ -1,0 +1,2 @@
+;comment
+global	main

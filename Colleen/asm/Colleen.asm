@@ -5,26 +5,17 @@ global		main
 
 colleen:
 	lea		rdi, [rel string_program]
-	mov		rsi, 10 ;1 \n
-	mov		rdx, 34 ;2 "
-	mov		rcx, 59 ;3 ;
-	mov		r8, rdi
-	mov 	al,0
+	mov		rsi, 10
+	mov		rdx, 34
+	mov		rcx, rdi
+	mov 	al,	0
 	call	printf wrt ..plt
 	ret
-
+	; comment inside
 main:
-	push	rbp
-	mov		rbp, rsp
-;	sub		rsp, 8  for VARIABLE LOCAL COMMENT
-
 	jmp		colleen
-
 	mov		rax, 0
-	mov		rsp, rbp
-	pop		rbp
 	ret
 
 section .data
-    string_program: db "a%3$ca", 0x0A, 0x0
-    len: equ $ - string_program
+	string_program: db ";comment outside%1$cglobal		main%1$c	section	.text%1$c	extern	printf%1$c%1$ccolleen:%1$c	lea		rdi, [rel string_program]%1$c	mov		rsi, 10%1$c	mov		rdx, 34%1$c	mov		rcx, rdi%1$c	mov 	al,	0%1$c	call	printf wrt ..plt%1$c	ret%1$c	; comment inside%1$cmain:%1$c	jmp		colleen%1$c	mov		rax, 0%1$c	ret%1$c%1$csection .data%1$c	string_program: db %2$c%3$s%2$c, 0x0%1$c", 0x0

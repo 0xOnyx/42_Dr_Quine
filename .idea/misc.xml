@@ -4,17 +4,17 @@
   <component name="MakefileSettings">
     <option name="linkedExternalProjectsSettings">
       <MakefileProjectSettings>
-        <option name="externalProjectPath" value="$PROJECT_DIR$/Grace/c" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/Sully/asm" />
         <option name="modules">
           <set>
-            <option value="$PROJECT_DIR$/Grace/c" />
+            <option value="$PROJECT_DIR$/Sully/asm" />
           </set>
         </option>
         <option name="version" value="2" />
       </MakefileProjectSettings>
     </option>
   </component>
-  <component name="MakefileWorkspace" PROJECT_DIR="$PROJECT_DIR$/Grace/c">
+  <component name="MakefileWorkspace" PROJECT_DIR="$PROJECT_DIR$/Sully/asm">
     <contentRoot DIR="$PROJECT_DIR$" />
   </component>
 </project>

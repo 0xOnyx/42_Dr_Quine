@@ -20,7 +20,7 @@ OBJ					= $(SRCS:.c=.o)
 OBJS				= $(addprefix $(PATH_OBJ),$(OBJ))
 
 DEBUGING			= -g3 -fsanitize=address -fsanitize=undefined
-CFLAGS				= #-Wall -Wextra -Werror
+CFLAGS				= -Wall -Wextra -Werror
 
 OPTIONS				=
 CC					= gcc

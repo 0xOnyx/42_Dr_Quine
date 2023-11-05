@@ -2,7 +2,7 @@
 ;comment
 global	main
 	section	.text
-	extern	dprintf
+		extern	dprintf
 
 main:
 	push	rbp

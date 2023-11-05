@@ -9,13 +9,6 @@
           </mappings>
         </serverdata>
       </paths>
-      <paths name="vps (48e01e9a-4239-405c-930f-892a05b69e83)">
-        <serverdata>
-          <mappings>
-            <mapping deploy="/tmp/tmp.LcXuqOTuY0" local="$PROJECT_DIR$/Colleen/c" />
-          </mappings>
-        </serverdata>
-      </paths>
     </serverData>
   </component>
 </project>

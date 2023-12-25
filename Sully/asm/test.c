@@ -8,7 +8,7 @@
 
 int main(void){
 	char    src_file[10], exec_file[10], exec_cmd[0x1FF];
-	int     fd, i = v;
+	int     fd, i = v;  //replace with 5
 	if (i <= 0){return (0);}
 
 	sprintf(src_file, "Sully_%d.c", i);
@@ -21,7 +21,10 @@ int main(void){
 
 	if (fd < 0)return (1);
 
+
 	dprintf(fd, string_programme, 10, 34, string_programme, i);
+
+
 
 	sprintf(exec_file, "Sully_%d", i);
 

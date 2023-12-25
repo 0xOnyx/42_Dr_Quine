@@ -44,29 +44,29 @@ string_programme	db	"", 0x0
 main:
 	push		rbp
 	mov			rbp, rsp
-	sub			rsp, 1024
+	sub			rsp, 539
 
-	mov	qword	[rsp + 548], 5
-	cmp	qwrod	[rsp + 548], 0
+	mov	dword 	[rsp + 535], 5
+	cmp	dwrod	[rsp + 535], 0
 	jnle		return
 
 	lea			rdi, rsp
 	lea			rsi, [rel sully_d]
-	mov	qword	rdx, [rsp + 548]
-	call		sprintf
+	mov	dword	rdx, [rsp + 535]
+	call		sprintf wrt ..plt
 
 	lea			rdi, [rel src_file]
 	lea			rsi, rsp
 	call		strcmp
 	cmp			rax, 0
-	jnz			continue
-	sub	qword	[rsp + 548], 1
+	jz			continue
+	sub	dword	[rsp + 535], 1
 
 continue:
 	lea			rdi, rsp
 	lea			rsi, [rel sully_d]
-	mov	qword	rdx, [rsp + 548]
-	call		sprintf
+	mov	dword	rdx, [rsp + 531]
+	call		sprintf wrt ..plt
 
 	lea			rdi, rsp
 	mov			rsi, 0x241
@@ -77,15 +77,15 @@ continue:
 	cmp			rax, 0
 	jl			return
 
-	mov qword	[rsp + 544], rax
-	mov qword	rdi, [rsp + 544]
+	mov dword	[rsp + 531], rax
+	mov dword	rdi, [rsp + 531]
 	lea			rsi, [rel string_programme]
 	mov			rdx, 10
 	mov			rcx, 34
 	mov			r8, rsi
-	mov	qword	r9, [rsp + 548]
+	mov	qword	r9, [rsp + 535]
 	mov			al, 0
-	call		dprintf
+	call		dprintf wrt ..plt
 
 	lea			rdi, [rsp + 16]
 	lea			rsi, [rel sully]

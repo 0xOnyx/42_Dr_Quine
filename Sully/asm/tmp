@@ -1,0 +1,46 @@
+; Réservez de l'espace sur la pile pour les tableaux et les variables entières
+sub esp, 539
+
+; À ce stade, esp pointe sur l'espace réservé
+; Vous pouvez utiliser cet espace pour les tableaux et les variables
+
+; Pour accéder à chaque tableau/variable :
+; src_file est à [esp]
+; exec_file est à [esp + 10]
+; exec_cmd est à [esp + 20]
+; fd est à [esp + 531]
+; i est à [esp + 535]
+
+; Initialiser la variable 'i' avec la valeur 'v' (supposons que 'v' est dans eax)
+mov [esp + 535], eax
+
+; Assurez-vous de restaurer le pointeur de pile avant de quitter la fonction ou le bloc
+add esp, 539
+
+
+
+
+
+
+
+; Préparation du cadre de pile
+push rbp
+mov rbp, rsp
+sub rsp, 539
+
+; À ce stade, vous pouvez adresser vos variables via rbp
+; Les adresses sont relatives à rbp et négatives car nous sommes dans le cadre de pile
+
+; src_file commence à -539
+; exec_file commence à -529
+; exec_cmd commence à -519
+; fd est à -8
+; i est à -4
+
+; Exemple : initialisation de 'i' avec une valeur stockée dans 'eax'
+mov dword ptr [rbp-4], eax
+
+; À la fin de la fonction, restaurez rsp et rbp
+mov rsp, rbp
+pop rbp
+ret

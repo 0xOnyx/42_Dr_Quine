@@ -1,3 +1,11 @@
+
+Parameters to functions are passed in the registers rdi, rsi, rdx, rcx, r8, r9, and further values are passed on the stack in reverse order.
+
+
+
+nasm -felf64 file.asm file.o
+gcc -o a.out file.o
+
 ; Réservez de l'espace sur la pile pour les tableaux et les variables entières
 sub esp, 539
 

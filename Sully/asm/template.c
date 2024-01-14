@@ -13,6 +13,7 @@ int main(void){
 
 	sprintf(src_file, "Sully_%d.c", i);
 
+
 	if (strcmp(__FILE__, src_file) == 0){i--;}
 
 	sprintf(src_file, "Sully_%d.c", i);
@@ -26,11 +27,28 @@ int main(void){
 
 
 
-	sprintf(exec_file, "Sully_%d", i);
 
-	sprintf(exec_cmd, "gcc %s -o %s", src_file, exec_file);
+
+    sprintf(exec_file, "Sully_%d.o", i);
+
+
+
+
+    sprintf(exec_cmd, "nasm -felf64 %s -o %s", src_file, exec_file);
+
+
+
+
+
+    system(exec_cmd);
+
+    sprintf(src_file, "Sully_%d", i);
+
+    sprintf(exec_cmd, "gcc %s -o %s", exec_file, src_file);
 
 	system(exec_cmd);
+
+
 
 	sprintf(exec_cmd, "./%s", exec_file);
 
@@ -39,3 +57,5 @@ int main(void){
 	close(fd);
 
 }
+
+

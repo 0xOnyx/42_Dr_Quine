@@ -20,6 +20,7 @@ OBJ					= $(SRCS:.asm=.o)
 OBJS				= $(addprefix $(PATH_OBJ),$(OBJ))
 
 DEBUGING			= #-g3 -fsanitize=address -fsanitize=undefined
+DEBUGING_ASM		= -g -F dwarf
 CFLAGS				= #-Wall -Wextra -Werror
 
 OPTIONS				= -felf64
@@ -27,10 +28,11 @@ NASM				= nasm
 CC					= gcc
 RM					= rm -rf
 
-DEBUG = 0
+DEBUG = 1
 
 ifeq ($(DEBUG), 1)
 	CFLAGS += $(DEBUGING)
+	OPTIONS += $(DEBUGING_ASM)
 endif
 
 all			: $(NAME)
